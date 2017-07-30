@@ -7,6 +7,7 @@ using TShockAPI;
 using TerrariaApi.Server;
 using Newtonsoft.Json;
 using System.IO;
+using Microsoft.Xna.Framework;
 
 namespace cClass
 {
@@ -173,7 +174,7 @@ namespace cClass
                             {
                                 Variables.playersData[e.Player.Name].Warrior.statsPoints--;
                                 e.Player.TPlayer.statLifeMax = e.Player.TPlayer.statLifeMax + 3;
-                                NetMessage.SendData(16, -1, -1, "", e.Player.Index, 0f, 0f, 0f, 0);
+                                NetMessage.SendData(16, -1, -1, Terraria.Localization.NetworkText.Empty, e.Player.Index, 0f, 0f, 0f, 0);
                                 e.Player.SendMessage(Variables.Message1, Color.Silver);
                                 return;
                             }
@@ -197,7 +198,7 @@ namespace cClass
                             {
                                 Variables.playersData[e.Player.Name].Paladin.statsPoints--;
                                 e.Player.TPlayer.statLifeMax = e.Player.TPlayer.statLifeMax + 3;
-                                NetMessage.SendData(16, -1, -1, "", e.Player.Index, 0f, 0f, 0f, 0);
+                                NetMessage.SendData(16, -1, -1, Terraria.Localization.NetworkText.Empty, e.Player.Index, 0f, 0f, 0f, 0);
                                 e.Player.SendMessage(Variables.Message1, Color.Silver);
                                 return;
                             }
@@ -221,7 +222,7 @@ namespace cClass
                             {
                                 Variables.playersData[e.Player.Name].Wizard.statsPoints--;
                                 e.Player.TPlayer.statLifeMax = e.Player.TPlayer.statLifeMax + 3;
-                                NetMessage.SendData(16, -1, -1, "", e.Player.Index, 0f, 0f, 0f, 0);
+                                NetMessage.SendData(16, -1, -1, Terraria.Localization.NetworkText.Empty, e.Player.Index, 0f, 0f, 0f, 0);
                                 e.Player.SendMessage(Variables.Message1, Color.Silver);
                                 return;
                             }
@@ -588,7 +589,7 @@ namespace cClass
                 message = message.Replace("%exp%", Variables.playersData[e.Player.Name].Warrior.exprience + "");
                 message = message.Replace("%neededexp%", Variables.playersData[e.Player.Name].Warrior.level * (896 + (896 * 43 / 100)) + "");
                 message = message.Replace("%percent%", percent + "%");
-                NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, message, (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
+                NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(message), (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
                 return;
             }
             if (Variables.playersData[e.Player.Name].ActualClass == "paladin")
@@ -599,7 +600,7 @@ namespace cClass
                 message = message.Replace("%exp%", Variables.playersData[e.Player.Name].Paladin.exprience + "");
                 message = message.Replace("%neededexp%", Variables.playersData[e.Player.Name].Paladin.level * (896 + (896 * 43 / 100)) + "");
                 message = message.Replace("%percent%", percent + "%");
-                NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, message, (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
+                NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(message), (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
                 return;
             }
             if (Variables.playersData[e.Player.Name].ActualClass == "wizard")
@@ -610,7 +611,7 @@ namespace cClass
                 message = message.Replace("%exp%", Variables.playersData[e.Player.Name].Wizard.exprience + "");
                 message = message.Replace("%neededexp%", Variables.playersData[e.Player.Name].Wizard.level * (896 + (896 * 43 / 100)) + "");
                 message = message.Replace("%percent%", percent + "%");
-                NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, message, (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
+                NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(message), (int)c.PackedValue, e.Player.X, e.Player.Y, 0, 0, 0, 0);
                 return;
             }
         }

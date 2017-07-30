@@ -4,7 +4,6 @@ using System.Text;
 using Terraria;
 using TShockAPI;
 using TerrariaApi.Server;
-using Newtonsoft.Json;
 using System.IO;
 
 namespace cClass
@@ -21,14 +20,14 @@ namespace cClass
             Player.TPlayer.armor[5].netDefaults(0);
             Player.TPlayer.armor[6].netDefaults(0);
             Player.TPlayer.armor[7].netDefaults(0);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)59);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)60);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)61);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)62);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)63);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)64);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)65);
-            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)66);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)59);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)60);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)61);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)62);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)63);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)64);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)65);
+            NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)66);
             return true;
         }
         public static bool clearBar(TSPlayer Player)
@@ -42,15 +41,15 @@ namespace cClass
             Player.TPlayer.inventory[6].SetDefaults(0);
             Player.TPlayer.inventory[7].SetDefaults(0);
             Player.TPlayer.inventory[8].SetDefaults(0);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)0);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)1);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)2);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)3);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)4);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)5);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)6);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)7);
-            NetMessage.SendData(5, -1, -1, "", Player.Index, (float)8);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)0);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)1);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)2);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)3);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)4);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)5);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)6);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)7);
+            NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)8);
             return true;
         }
         public static bool loadEquipment(TSPlayer Player, string classe)
@@ -63,7 +62,7 @@ namespace cClass
                     foreach (int i in Variables.playersData[Player.Name].Warrior.itemsArmorNetID)
                     {
                         Player.TPlayer.armor[currentLoop].netDefaults(i);
-                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Warrior.itemsArmorPrefix[currentLoop], 0f, 0);
+                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Warrior.itemsArmorPrefix[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;
@@ -80,7 +79,7 @@ namespace cClass
                     foreach (int i in Variables.playersData[Player.Name].Paladin.itemsArmorNetID)
                     {
                         Player.TPlayer.armor[currentLoop].netDefaults(i);
-                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Paladin.itemsArmorPrefix[currentLoop], 0f, 0);
+                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Paladin.itemsArmorPrefix[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;
@@ -97,7 +96,7 @@ namespace cClass
                     foreach (int i in Variables.playersData[Player.Name].Wizard.itemsArmorNetID)
                     {
                         Player.TPlayer.armor[currentLoop].netDefaults(i);
-                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, "", Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Wizard.itemsArmorPrefix[currentLoop], 0f, 0);
+                        NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop + 59, (float)Variables.playersData[Player.Name].Wizard.itemsArmorPrefix[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;
@@ -120,7 +119,7 @@ namespace cClass
                     {
                         Player.TPlayer.inventory[currentLoop].SetDefaults(i);
                         Player.TPlayer.inventory[currentLoop].stack = Variables.playersData[Player.Name].Warrior.itemsBarStack[currentLoop];
-                        NetMessage.SendData(5, -1, -1, "", Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Warrior.itemsBarStack[currentLoop], 0f, 0);
+                        NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Warrior.itemsBarStack[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;
@@ -139,7 +138,7 @@ namespace cClass
                     {
                         Player.TPlayer.inventory[currentLoop].SetDefaults(i);
                         Player.TPlayer.inventory[currentLoop].stack = Variables.playersData[Player.Name].Paladin.itemsBarStack[currentLoop];
-                        NetMessage.SendData(5, -1, -1, "", Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Paladin.itemsBarStack[currentLoop], 0f, 0);
+                        NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Paladin.itemsBarStack[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;
@@ -158,7 +157,7 @@ namespace cClass
                     {
                         Player.TPlayer.inventory[currentLoop].SetDefaults(i);
                         Player.TPlayer.inventory[currentLoop].stack = Variables.playersData[Player.Name].Wizard.itemsBarStack[currentLoop];
-                        NetMessage.SendData(5, -1, -1, "", Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Wizard.itemsBarStack[currentLoop], 0f, 0);
+                        NetMessage.SendData(5, -1, -1, Terraria.Localization.NetworkText.Empty, Player.Index, (float)currentLoop, (float)Variables.playersData[Player.Name].Wizard.itemsBarStack[currentLoop], 0f, 0);
                         currentLoop++;
                     }
                     return true;

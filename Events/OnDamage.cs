@@ -5,6 +5,7 @@ using System.Text;
 using Terraria;
 using TShockAPI;
 using TerrariaApi.Server;
+using Microsoft.Xna.Framework;
 
 namespace cClass.Events
 {
@@ -45,14 +46,14 @@ namespace cClass.Events
                     Variables.playersData[e.Player.name].Warrior.exprience = 0;
                     Variables.playersData[e.Player.name].Warrior.statsPoints++;
                     string levelUp = Variables.levelUp.Replace("%level%", Variables.playersData[e.Player.name].Warrior.level + "");
-                    NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, levelUp, (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                    NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(levelUp), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                 }
                 else
                 {
                     int change = new Random().Next(0, 100);
                     if (change <= Variables.Chance)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "[" + Variables.playersData[e.Player.name].Warrior.level + "LVL] " + Variables.playersData[e.Player.name].Warrior.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Warrior.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]", (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("[" + Variables.playersData[e.Player.name].Warrior.level + "LVL] " + Variables.playersData[e.Player.name].Warrior.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Warrior.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]"), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                     }
                 }
             }
@@ -67,14 +68,14 @@ namespace cClass.Events
                     Variables.playersData[e.Player.name].Paladin.exprience = 0;
                     Variables.playersData[e.Player.name].Paladin.statsPoints++;
                     string levelUp = Variables.levelUp.Replace("%level%", Variables.playersData[e.Player.name].Warrior.level + "");
-                    NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, levelUp, (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                    NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(levelUp), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                 }
                 else
                 {
                     int change = new Random().Next(0, 100);
                     if (change <= Variables.Chance)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "[" + Variables.playersData[e.Player.name].Paladin.level + "LVL] " + Variables.playersData[e.Player.name].Paladin.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Paladin.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]", (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("[" + Variables.playersData[e.Player.name].Paladin.level + "LVL] " + Variables.playersData[e.Player.name].Paladin.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Paladin.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]"), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                     }
                 }
             }
@@ -89,14 +90,14 @@ namespace cClass.Events
                     Variables.playersData[e.Player.name].Wizard.exprience = 0;
                     Variables.playersData[e.Player.name].Wizard.statsPoints++;
                     string levelUp = Variables.levelUp.Replace("%level%", Variables.playersData[e.Player.name].Warrior.level + "");
-                    NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, levelUp, (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                    NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral(levelUp), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                 }
                 else
                 {
                     int change = new Random().Next(0, 100);
                     if (change <= Variables.Chance)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "[" + Variables.playersData[e.Player.name].Wizard.level + "LVL] " + Variables.playersData[e.Player.name].Wizard.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Wizard.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]", (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("[" + Variables.playersData[e.Player.name].Wizard.level + "LVL] " + Variables.playersData[e.Player.name].Wizard.exprience + "|" + neededExpForLevelUp + "] " + ((Variables.playersData[e.Player.name].Wizard.exprience * 100) / neededExpForLevelUp) + "%    +[" + addedExp + "xp]"), (int)c.PackedValue, TShock.Players[e.Player.whoAmI].X, TShock.Players[e.Player.whoAmI].Y, 0, 0, 0, 0);
                     }
                 }
             }
@@ -111,7 +112,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Warrior.statMeleeDamage * 3);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -125,7 +126,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Paladin.statMeleeDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -139,7 +140,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Wizard.statMeleeDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -156,7 +157,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Warrior.statRangedDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -170,7 +171,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Paladin.statRangedDamage * 3);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -184,7 +185,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Wizard.statRangedDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -201,7 +202,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Warrior.statMagicDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -215,7 +216,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Paladin.statMagicDamage);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;
@@ -230,7 +231,7 @@ namespace cClass.Events
                     int Damage = (Variables.playersData[e.Player.name].Wizard.statMagicDamage * 3);
                     if (Damage > 0)
                     {
-                        NetMessage.SendData((int)PacketTypes.CreateCombatText, -1, -1, "+" + Damage, (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
+                        NetMessage.SendData(119, -1, -1, Terraria.Localization.NetworkText.FromLiteral("+" + Damage), (int)c.PackedValue, e.Npc.position.X, e.Npc.position.Y, 0, 0, 0, 0);
                     }
                     e.Damage = e.Damage + Damage;
                     return;

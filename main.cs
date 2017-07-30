@@ -7,25 +7,25 @@ using TShockAPI;
 using TerrariaApi.Server;
 using Newtonsoft.Json;
 using System.IO;
-
+using Microsoft.Xna.Framework;
 
 namespace cClass
 {
-    [ApiVersion(1, 21)]
+    [ApiVersion(2, 1)]
     public class main : TerrariaPlugin
     {
 
         public static Config Config;
 
         public main(Main game) : base(game) { Order -= 1; }
-        public override Version Version { get { return new Version("1.4"); } }
+        public override Version Version { get { return new Version("1.5"); } }
         public override string Name { get { return "cClass"; } }
-        public override string Author { get { return "Teddy"; } }
+        public override string Author { get { return "baiumbg"; } }
         public override string Description { get { return "Classes And Levels"; } }
 
         public override void Initialize()
         {
-            string path = Path.Combine(TShock.SavePath, "cClassData1_4.json");
+            string path = Path.Combine(TShock.SavePath, "cClassData1_5.json");
             Config = Config.Read(path);
             if (!File.Exists(path))
             {
